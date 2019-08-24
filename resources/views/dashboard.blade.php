@@ -14,7 +14,31 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <h3>Your Listings</h3>
+
+                    @if(count($listings) > 0)
+
+                        <table class="table table-striped">
+                            <thead>
+                              <tr>
+                                <th>Company</th>
+                                <th></th>
+                                <th></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($listings as $listing)
+                              <tr>
+                                <td>{{$listing->name}}</td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                            @endforeach
+                            </tbody>
+                          </table>
+
+                     @endif
+
                 </div>
             </div>
         </div>

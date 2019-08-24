@@ -36,4 +36,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    //relaionship. user has many listings
+    public function listings(){
+        return $this->hasMany('App\Listing');
+    }
 }

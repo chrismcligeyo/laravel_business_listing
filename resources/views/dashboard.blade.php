@@ -31,7 +31,17 @@
                               <tr>
                                 <td>{{$listing->name}}</td>
                                 <td><a href="{{route('listings.edit', $listing->id)}}" class="float-right btn btn-info ">Edit</a></td>
-                                <td></td>
+                                <td>
+                                    {!! Form::open(['method'=>'DELETE', 'action'=>['ListingsController@destroy', $listing->id],'files'=>true]) !!} <!--files true enables you to add file, upload. equivalent of enctype=multiform/data-->
+
+                                    <div class="form-group">
+
+                                        {!! Form::submit('Delete', ['class'=>'btn btn-danger']) !!}
+                                    </div>
+
+
+                                    {!! Form::close() !!}
+                                </td>
                               </tr>
                             @endforeach
                             </tbody>

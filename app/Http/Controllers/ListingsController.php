@@ -139,5 +139,10 @@ class ListingsController extends Controller
     public function destroy($id)
     {
         //
+        $listings = Listing::findOrFail($id);
+
+        $listings->delete();
+        session()->flash('success', 'Listing Deleted');
+        return redirect('dashboard');
     }
 }

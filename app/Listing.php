@@ -18,6 +18,7 @@ class Listing extends Model
         'bio',
     ];
 
+    //lsisting belons to user
     public function user(){
         return $this->belongsTo('App\User');
     }

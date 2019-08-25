@@ -11,12 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::group(['middleware'=>'listings'], function(){
+//
+//}); //if was to assign middleware to group of routes
+
+Route::get('/', 'ListingsController@index');
 
 Auth::routes();
 
 Route::resource('listings', 'ListingsController');
+
+//    ->middleware('listings',['except' =>['index', 'show']]); //means wrap all functions in Listings controller in listings middleware except index and showfunction
 
 Route::get('/dashboard', 'DashboardController@index');

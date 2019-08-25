@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 
 class ListingsController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +18,8 @@ class ListingsController extends Controller
     public function index()
     {
         //
-
+        $listings = Listing::orderBy('created_at','desc')->get();
+        return view('listingsindex',compact('listings'));
     }
 
     /**
@@ -75,6 +78,10 @@ class ListingsController extends Controller
     public function show($id)
     {
         //
+
+        $listing = Listing::findOrFail($id);
+        return view('showlistings',compact('listing'));
+
     }
 
     /**
